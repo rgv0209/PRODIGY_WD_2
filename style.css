@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #0b0f19;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.stopwatch-container {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+
+.half-circle-wrapper {
+  position: relative;
+  width: 320px;
+  height: 160px; 
+  margin: 0 auto 40px auto;
+  overflow: hidden; 
+}
+
+.gradient-half-circle {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  /* Cutting-edge blue to purple gradient mask border */
+  background: conic-gradient(from 0deg, #38bdf8, #a855f7, #38bdf8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-mask: radial-gradient(circle 145px at 160px 160px, transparent 100%, #000 100%);
+  mask: radial-gradient(circle 145px at 160px 160px, transparent 100%, #000 100%);
+}
+
+.time-display {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.time-display .ms {
+  font-size: 24px;
+  color: #a855f7;
+}
+
+/* Control Systems Layout */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.start { background-color: #38bdf8; color: #0b0f19; }
+.start.running { background-color: #ef4444; color: #ffffff; }
+.lap { background-color: #1e293b; color: #ffffff; }
+.lap:disabled { opacity: 0.4; cursor: not-allowed; }
+.reset { background-color: rgba(255, 255, 255, 0.1); color: #ffffff; }
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+
+.laps-container {
+  max-height: 200px;
+  overflow-y: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px;
+}
+
+#lapsList {
+  list-style: none;
+}
+
+#lapsList li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+#lapsList li span:first-child {
+  color: rgba(255, 255, 255, 0.5);
+}
